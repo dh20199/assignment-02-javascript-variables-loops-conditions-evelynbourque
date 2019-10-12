@@ -143,11 +143,18 @@ function carefulSubtract (first, second) {
  * @returns {} a meessage about unknown, or the square of unknown if it is a number
  */
 function typeTester (unknown) {
-  // use an if/else construction, a switch/case , or any other branching logic. Remember to
-  // return a value. 
+  if (typeof unknown === 'number') {
+    return unknown*unknown; }
+  if (typeof unknown === 'string') {
+    return unknown + " yay!"; }
+  if (typeof unknown === 'undefined') {
+    return "Sorry, I can't do anything with an undefined value."; }
+  else {
+    return "I don't know how to use that kind of variable." }
 }
 
-
+// let t = typeTester({name: 'none:'});
+// t;
 
 // DO NOT MODIFY -- FOR AUTOMATED TESTING ONLY
 // MODIFYING THIS CODE WILL ALMOST CERTAINLY CAUSE YOUR TESTS TO BREAK
