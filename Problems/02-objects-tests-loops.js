@@ -20,13 +20,13 @@
  * @returns {object} should have the properties FIRSTNAME, LASTNAME, and PROFESSION
  */
 function returnObject (first, last, prof) {
-  var o = returnObject();
-  o.first[first] = 'first';
-  o.last[last] = 'last';
-  o.prof[prof] = 'prof'; 
-  for (var i in returnOject){
-    if first, last, prof;
-   
+  let o = {};
+  o.firstName = first;
+  o.lastName = last;
+  o.profession = prof;
+return o;
+} 
+
 
   // it might be easiest here to declare a variable
   // var o = {};
@@ -34,8 +34,6 @@ function returnObject (first, last, prof) {
   // o.firstName = first
   // etc.
   // don't forget to return the object
-}
-
 
 
 // Problem 2
@@ -64,18 +62,17 @@ function returnObject (first, last, prof) {
  * @returns {string} a sentence constructed from the object parameters 
  */
 function objectToSentence (obj) {
-let historians = [obj.firstName, obj.lastName, obj.profession]
-for (i in historians) {
-  console.log(obj.firstName[i], + obj.lastName[i], + "was a ", + obj.profession[i]);
+  let person = obj.firstName + ' ' + obj.lastName + ' was a ' + obj.profession + '.';
+return person;
+  
 }
+
   // remember you can refer to object properties using either of 2 methods
   // obj['propertyname']
   // or
   // obj.propertyname
   // note the quotes in the first options
   // also note: you need to change this next line!!
-return historians;
-}
 
 
 // Problem 3
@@ -105,6 +102,13 @@ return historians;
  * @returns {string} a sentence constructed from the object parameters
  */
 function wasWriter (obj) {
+  if (obj.profession === 'novelist') {
+    return obj.firstName + ' ' + obj.lastName + ' was a writer.';
+} 
+  else {
+    return obj.firstName + ' ' + obj.lastName + ' was not a writer.'; 
+  }
+
   // in an if/else statement
   // it is acceptable to put the
   // "return" statement inside the conditional braces
@@ -128,6 +132,11 @@ function wasWriter (obj) {
  * @returns {string}
  */
 function stringIterator (aString, aNumber) {
+  let stringOne = '';
+  for (let i = 0; i < aNumber; i++) {
+    stringOne = stringOne + aString;
+  }
+  return stringOne;
   // remember a basic "for" loop has this structure:
   // for (var i = 0; i< SOMETHING; i++) {...statements...  };
 }
@@ -154,6 +163,13 @@ function stringIterator (aString, aNumber) {
  * @returns   {string}
  */
 function prettyIterator (aString, aNumber) {
+  let iteration = '';
+  let pretty = 0;
+  for (let i = 0; i < aNumber; i++) {
+    pretty = pretty + 1;
+    iteration = iteration + aString + '(' + pretty + ')' + '\n';
+  }
+  return iteration;
   // be sure to check your results on this one; it has a trick. maybe 2. 
 }
 
@@ -197,6 +213,8 @@ function prettyIterator (aString, aNumber) {
  * @returns {string} 
  */
 function computeReign (pm) {
+  return pm['fullName'] + "'s reign was " + (pm.to - pm.from) +" years long.";
+
   // declare a variable, setting it equal to the
   // length of reign. Now declare another variable,
   // and construct the desired sentence using the appropriate
@@ -204,8 +222,6 @@ function computeReign (pm) {
   // "escape" the ' with \'
   // finally, makre sure you return the sentence as the value of the function
 }
-
-
 
 // Problem 7
 // Write a function that takes as a parameter an ARRAY OF OBJECTS
@@ -252,6 +268,13 @@ function computeReign (pm) {
  *  the properties of the individual objects comprising `list`
  */
 function sentences(list) {
+ 
+let final = '';
+  for (let minister of list) {
+    final = final + minister.fullName + "'s reign was " + (minister.to - minister.from) + " years long.\n";
+  }
+  return final;
+  
   // Hint: "ministers" is an ARRAY of OBJECTS. The simplest way to solve this problem
   // is to use the "for...of" loop syntax to loop through the array,
   // and the object[attribute] or object.attribute reference format to access
